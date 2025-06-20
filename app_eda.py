@@ -211,14 +211,14 @@ class EDA:
         df = pd.read_csv(uploaded, parse_dates=['datetime'])
 
         tabs = st.tabs([
-            "1. 결측치 및 중복 확인",
-            "2. 연도별 전체 인구 추이 그래프",
-            "3. 지역별 인구 변화량 순위",
-            "4. 증감률 상위 지역 및 연도 도출",
-            "5. 누적영역그래프 등 적절한 시각화"
+            "1. 기초 통계",
+            "2. 연도별 추이",
+            "3. 지역별 분석",
+            "4. 변화량 분석",
+            "5. 시각화"
         ])
 
-        # 1. 결측치 및 중복 확인
+        # 1. 기초 통계
         with tabs[0]:
             # ‘세종’ 지역 결측치 '-' → 0 치환
             mask_sejong = df['지역'] == '세종'
@@ -237,7 +237,7 @@ class EDA:
             # df.describe() 출력
             st.dataframe(df.describe())
 
-        # 2. 연도별 전체 인구 추이 그래프
+        # 2. 연도별 추이
         with tabs[1]:
             # '전국' 필터링
             nation_df = df[df['지역'] == '전국'].copy()
@@ -278,7 +278,7 @@ class EDA:
 
             st.pyplot(plt)
 
-        # 3. 지역별 인구 변화량 순위
+        # 3. 지역별 분석
         with tabs[2]:
             # 최근 5년 데이터 필터링 및 전국 제외
             max_year = self.df['연도'].max()
@@ -350,7 +350,7 @@ class EDA:
             It provides a relative measure of growth or decline compared to the population 5 years ago.
             """)
 
-        # 4. 증감률 상위 지역 및 연도 도출
+        # 4. 변화량 분석
         with tabs[3]:
             # '전국' 제외하고 연도 기준 정렬
             region_df = self.df[self.df['지역'] != '전국'].copy()
@@ -384,7 +384,7 @@ class EDA:
             st.subheader("💡 Top 100 Population Change Cases by Region (Excl. Nationwide)")
             st.dataframe(styled_df, use_container_width=True)
 
-        # 5. 누적영역그래프 등 적절한 시각화
+        # 5. 시각화
         with tabs[4]:
             st.subheader("📊 Stacked Area Chart: Population by Region Over Time")
 

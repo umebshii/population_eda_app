@@ -210,7 +210,7 @@ class EDA:
             st.info("population_trends.csv 파일을 업로드 해주세요.")
             return
 
-        df = pd.read_csv(uploaded, parse_dates=['datetime'])
+        df = pd.read_csv(uploaded)
 
         tabs = st.tabs([
             "1. 기초 통계",

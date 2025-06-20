@@ -49,18 +49,20 @@ class Home:
         # Kaggle 데이터셋 출처 및 소개
         st.markdown("""
                 ---
-                **Bike Sharing Demand 데이터셋**  
-                - 제공처: [Kaggle Bike Sharing Demand Competition](https://www.kaggle.com/c/bike-sharing-demand)  
-                - 설명: 2011–2012년 캘리포니아 주의 수도인 미국 워싱턴 D.C. 인근 도시에서 시간별 자전거 대여량을 기록한 데이터  
+                **인구 통계 데이터셋**  
+                - 제공처: [통계청 KOSIS](https://kosis.kr)  
+                - 설명: 전국 및 시도별 연도별 인구, 출생아수, 사망자수 등의 주요 인구 지표를 포함한 통계 데이터  
+                - 데이터 범위: 약 2000년대 초반부터 2022년까지  
                 - 주요 변수:  
-                  - `datetime`: 날짜 및 시간  
-                  - `season`: 계절  
-                  - `holiday`: 공휴일 여부  
-                  - `workingday`: 근무일 여부  
-                  - `weather`: 날씨 상태  
-                  - `temp`, `atemp`: 기온 및 체감온도  
-                  - `humidity`, `windspeed`: 습도 및 풍속  
-                  - `casual`, `registered`, `count`: 비등록·등록·전체 대여 횟수  
+                  - `연도 (year)`: 기준 연도  
+                  - `지역 (region)`: 전국 또는 시도 단위 지역  
+                  - `인구 (population)`: 해당 연도 및 지역의 총인구 수  
+                  - `출생아수(명) (births)`: 해당 연도의 출생자 수  
+                  - `사망자수(명) (deaths)`: 해당 연도의 사망자 수  
+                - 활용 목적:  
+                  - 연도별/지역별 인구 추이 시각화  
+                  - 출생아수 및 사망자수 기반 인구 변화 분석  
+                  - 향후 인구 추세 예측 및 정책적 시사점 도출
                 """)
 
 # ---------------------
